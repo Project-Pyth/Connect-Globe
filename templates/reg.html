@@ -1,0 +1,35 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block content %}
+
+<html>
+<head>
+ {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+</head>
+<body background="{% static 'images/p6.jpeg' %}">
+<div class ="wrap" >
+<h2> Sign Up </h2>
+<form method="post">
+ {% csrf_token %}
+<input type="text" name="First Name" placeholder="First Name" required>
+<input type="text" name="Last Name" placeholder="Last Name" required>
+<input type="text" name="User Name" placeholder="User Name" required>
+<input type="text" name="Email Id" placeholder="Email Id" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required>
+<input type="password" name="Password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+<input type="password" name="Confirm Password" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+<input type="submit" type="Submit">
+</form>
+</div>
+<div>
+ {% for message in messages %}
+ <h3>
+  {{message}}
+ </h3>
+ {% endfor %}
+</div>
+</body>
+</html>
+
+{% endblock content %}

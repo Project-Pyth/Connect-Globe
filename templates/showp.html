@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+  {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<style type="text/css">
+{
+padding:0;
+margin:0;
+}
+.backImg{
+width:50%;
+height:50vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+.profile{
+width:5px;
+}
+img{
+height:250px;
+border-radius:10%;
+}
+.profileText{
+font-size:2em;
+font-weight:100;
+margin-bottom:20px;
+font-size:15px;
+}
+h4{
+font-size:20px;
+}
+</style>
+
+
+<body background="{% static 'images/p5.jpeg'%}" style="height=150px;">
+<div class="container">
+
+        <div class="row" style="margin-bottom:10%;margin-top:10%; margin-left:300px;">
+            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                <div class="slider_text">
+                    <div class="backImg">
+                        <div class="profile">
+                            <img src="{% static "images/heena.jpg" %}">
+                            <div class="profileText">
+                                <h2 style="font-size:16px;width:150px;"> Heena Chhabra </h2>
+                                <h3 style="font-size:16px;width:150px;"> heena101@gmail.com </h3>
+                                <h5 style="width:150px; font-size:16px;">Patel Institute of Management and Technology <br>
+                                MCA, Rajpura </h5>
+                                <h4 style="font-size:16px;width:150px;">Mentor's Name:- Mrs. Sipika
+                                Technology Used:- Python</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body background="{% static 'images/p6.jpeg'%}">
+{% if request.user %}
+{% for post in posts %}
+<h3>{{ post.title }}</h3>
+<p>{{ post.body }}</p>
+<small><b>{{ post.author }}</b></small>
+<small>{{ post.date_posted }}</small>
+{% endfor %}
+{% endif %}
+
+</body>
+</html>
+{% endblock content %}

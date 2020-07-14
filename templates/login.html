@@ -1,0 +1,115 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+  {% load static %}
+<style type="text/css">
+body{
+    background-image: url('/static/images/p5.jpeg');
+}
+
+.login-form{
+    width: 40%;
+    margin-bottom: 10%;
+    box-sizing: border-box;
+    padding: 40px;
+    margin-left: 25%;
+    margin-top: 10%;
+    transition: 0.5s;
+    background: rgba(0,0,0,0.8);
+    border-radius: 18px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+h1 {
+    margin: 0 0 20px;
+    font-size: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Baloo Thambi 2',cursive;
+}
+.login-form input {
+     display:block;
+     width: 100%;
+     padding: 20px 20px;
+     box-sizing: border-box;
+     margin-bottom: 20px;
+     border-radius:2px;
+     outline: none;
+     font-size: 18px;
+     color:#fff;
+     background:transparent;
+}
+
+.login-form input:hover{
+     border: 1px dotted #fff;
+
+}
+
+.login-form input::placeholder{
+      color: #E5E5E5;
+      font-family: 'Lobster', cursive;
+
+}
+
+.login-form input[type="submit"]{
+       color:#fff;
+       font-family: 'Baloo Thambi 2', cursive;
+       font-size:22px;
+       background: #03a9f4;
+       border: none;
+       cursor:pointer;
+       text-transform:uppercase;
+       font-weight:bold;
+       margin-top: 10%;
+}
+.login-form input[type="submit"]:hover {
+       background: #2bbac4;
+
+}
+
+.login-form #a {
+       width: 100%;
+       margin-bottom: 0px;
+       margin-left: 25%;
+       text-decoration: none;
+       color: #fff;
+       font-size: 18px;
+       border: none;
+       cursor: pointer;
+       text-transform: uppercase;
+       form-family: 'Baloo Thambi 2';
+       font-weight: bold;
+ }
+
+</style>
+<body>
+
+<section>
+    <div class="container">
+        <div class="login-form">
+            <h1>LOGIN</h1>
+            <form method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="USER NAME" required/>
+            <input type="password" name="pass" placeholder="PASSWORD" required/>
+
+            <input type= "submit" value="LOGIN">
+            <h2 style="color: #fff; text-align : center; ">OR</h2>
+                <a  href= "{% url 'MyApp:reg' %}"><u style="color:#fff; text-align : center;">REGISTER HERE</u></a>
+               <br><br>
+            <b style="color:#fff; word-spacing:2px; ">Please register first</b>
+            <a  href= "{% url 'MyApp:reg' %}"><u style="margin-left:10px;color:#fff;  ">REGISTER HERE</u></a>
+                {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                        <p style="color: white; text-align: center; ">{{ message }}</p>
+                    {% endif %}
+                {% endfor %}
+        </form>
+
+        </div>
+    </div>
+</section>
+</body>
+
+
+{% endblock content %}

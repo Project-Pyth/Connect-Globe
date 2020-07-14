@@ -1,0 +1,24 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body background="{% static 'images/p6.jpeg'%}">
+<h1>About Us</h1>
+<p>
+    Connect Globe provides a common people can share their experiences,Information and hurdles all over the globe and people can consult and discuss on any topic that is created by only the registered user.
+    Moreover the user can give their precious advice on any topic or report.
+    The admin after being logged in can created and also post any topic or report that is to be discussed.
+    Admin also can view old comments history and post his own comment on topics.
+    common people can view reports after being logged in and can share the report and also post and view comments.
+</p>
+
+</body>
+</html>
+
+{% endblock content %}

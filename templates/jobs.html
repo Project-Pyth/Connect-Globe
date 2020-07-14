@@ -1,0 +1,114 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application Formt</title>
+</head>
+<style type="text/css">
+    div class {
+        text-align: left;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        box-sizing: border-box;
+        padding: 10px 500px;
+    }
+</style>
+<body background="{% static 'images/p5.jpeg'%}">
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <h1 style="text-align:center;border-bottom: 3px ;">Apply Now</h1>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <div class="Job_text">
+                <label action='Apply Now' method="post" autocomplete="off">
+                </label>
+                <form method="post" id="apply" my-2>
+                    {% csrf_token %}
+                    {% if messages %}
+                    {% for message in messages%}
+                    <p style="color:green; text-align: center;">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+
+                    <br><input type="text" name="name" placeholder=" Name" required
+                               style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;"><br><br>
+
+                    <br><input required type="email" id="email" name="email" placeholder="Email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address"
+                               style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;"><br><br>
+
+                    <br><select id="country" name="country" required
+                                style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;">
+                    <option>Select Your Country</option>
+                    <option>India</option>
+                    <option>Dhubai</option>
+                    <option>England</option>
+                    <option>America</option>
+                    <option>Singapore</option>
+                    <option>Swedan</option>
+                </select><br><br>
+                    <br><select id="ph"
+                                style="height:50px;width:5%;border-radius:5px;margin-left:350px;margin-top:-20px;">
+                    <option> + 91</option>
+                    <option> + 92</option>
+                    <option> + 93</option>
+                    <option> + 94</option>
+                    <option> + 95</option>
+                    <option> + 96</option>
+                    <option> + 97</option>
+
+                </select>
+                    <input type="tel" id="phone" name="phone" placeholder="enter phone number" pattern="[0-9]{10}" required
+                           style="height:50px;width:34%;border-radius:5px;margin-left:5px;margin-top:-20px;"><br><br>
+
+                    <br> <select id="tec" name="technology" required
+                                 style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;">
+                    <option>Select Technologies</option>
+                    <option>Sql Developer</option>
+                    <option>Database management</option>
+                    <option>Java Developer</option>
+                    <option>Python Developer</option>
+                </select><br><br>
+                    <br><input required type="text" id="name" name="E_Y" placeholder="Experience In Year"
+                               style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;"><br><br>
+                    <br><input required type="text" id="E Y" name="subject" placeholder="Current Company"
+                               style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;"><br><br>
+                    <br><select id="ed" name="education" required
+                                style="height:50px;width:40%;border-radius:5px;margin-left:350px;margin-top:-20px;">
+                    <option>Educational Qualification</option>
+                    <option>B.Tech</option>
+                    <option>M.Tech</option>
+                    <option>B.Com</option>
+                    <option>BCA</option>
+                    <option>MCA</option>
+                    <option>B.s.c</option>
+                    <option>Any Degree</option>
+                </select><br><br>
+                    <br> <label id="Select file to upload" style="margin-left:350px;">Select file to upload</label>
+                    <input type="file" id="fu" name="file upload" placeholder="file upload" required
+                           style="height:50px;width:29%;border-radius:5px;margin-left:10px;margin-top:-20px;"><br>
+
+
+                    <br><input type="Submit" value="Submit Application"
+                               style="height:50px;width:20%;border-radius:5px;margin-left:450px;margin-top:-20px;margin-bottom:5%;">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post_Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body background="{% static 'images/p6.jpeg'%}">
+
+    <h2 style="text-align:center">ADD POST</h2>
+    <div class="container" style="margin-bottom: 10%; margin-top:5%;margin-left:500px;width:50px;">
+        <div class="row">
+
+            <div class="col-lg-7 offset-lg-1">
+                {% if message %}
+                    <p style="color:#0e5b44; margin-left:150px;width:50px;"><i>{{ message}}</i></p>
+                {% endif %}
+                <form class="create-form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- title -->
+                    <div class="form-group">
+                        <label for="id_image"><h3 style="left:70%;">Title</h3></label>
+                        {{ post_form.title|safe }}
+                    </div>
+                    <br>
+
+                    <!-- Body -->
+
+                    <div class="form-group">
+                        <label for="id_image"><h3 style="float:center;left:50%;">Body</h3></label>
+                        {{ post_form.body|safe }}
+                    </div>
+
+                    <!-- Image -->
+
+
+                    <input type="Submit" value="&nbsp;&nbsp;Post&nbsp;" style="margin-left:100px;border-radius:10px;width:100px;background-color:white;">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

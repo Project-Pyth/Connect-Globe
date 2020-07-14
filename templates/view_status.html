@@ -1,0 +1,24 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Posts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body background="{% static 'images/h2.jpg'%}">
+<div class="container">
+<h1 style="text-align:center">View Posts</h1>
+{% for post in posts %}
+<h2><a href="{% url 'MyApp:detail' post.pk %}">{{post.title}}</a></h2>
+<p>{{post.body}}</p>
+<small><b>{{post.author}}</b></small>
+<small>{{ post.date_posted }}</small>
+{% endfor %}
+</div>
+</body>
+</html>
+
+{% endblock content %}
